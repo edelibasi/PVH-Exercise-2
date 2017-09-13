@@ -18,6 +18,7 @@
 		3476A23C1F69A64A004A0223 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3476A23B1F69A64A004A0223 /* Constants.swift */; };
 		3476A23E1F69A650004A0223 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3476A23D1F69A650004A0223 /* Extensions.swift */; };
 		3476A2401F69A78E004A0223 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3476A23F1F69A78E004A0223 /* ScheduleViewController.swift */; };
+		3476A2431F69A9DC004A0223 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3476A2421F69A9DC004A0223 /* Schedule.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		3476A23B1F69A64A004A0223 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3476A23D1F69A650004A0223 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		3476A23F1F69A78E004A0223 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		3476A2421F69A9DC004A0223 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 			children = (
 				3476A2081F69A5E6004A0223 /* AppDelegate.swift */,
 				3476A20C1F69A5E6004A0223 /* Main.storyboard */,
+				3476A2411F69A9BF004A0223 /* Model */,
 				3476A2371F69A600004A0223 /* View Controllers */,
 				3476A2361F69A5F9004A0223 /* Views */,
 				3476A23A1F69A636004A0223 /* Supporting Files */,
@@ -159,6 +162,14 @@
 				3476A2141F69A5E6004A0223 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3476A2411F69A9BF004A0223 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3476A2421F69A9DC004A0223 /* Schedule.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,6 +314,7 @@
 				3476A2091F69A5E6004A0223 /* AppDelegate.swift in Sources */,
 				3476A2401F69A78E004A0223 /* ScheduleViewController.swift in Sources */,
 				3476A2391F69A62B004A0223 /* ScheduleDetailView.swift in Sources */,
+				3476A2431F69A9DC004A0223 /* Schedule.swift in Sources */,
 				3476A23C1F69A64A004A0223 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
