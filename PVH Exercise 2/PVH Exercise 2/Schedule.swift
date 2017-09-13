@@ -9,11 +9,6 @@
 import Foundation
 
 struct Schedule {
-    var startDate: Date
-    var endDate: Date
-    
-    init(startDate: Date, endDate: Date) {
-        self.startDate = startDate
-        self.endDate = endDate
-    }
+    var startDate = Date()
+    var endDate = Date().addingDays(7)
 }

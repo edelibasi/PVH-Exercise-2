@@ -18,7 +18,7 @@ extension DateFormatter {
 
 extension Date {
     var stringValue: String {
-        let dateFormatter = DateFormatter(dateFormat: "dd MMMM yyyy")
+        let dateFormatter = DateFormatter(dateFormat: "d MMMM yyyy")
         let comparison = Calendar.current.compare(self, to: Date(), toGranularity: .minute)
         return comparison == ComparisonResult.orderedSame ? "Today" : dateFormatter.string(from: self)
     }

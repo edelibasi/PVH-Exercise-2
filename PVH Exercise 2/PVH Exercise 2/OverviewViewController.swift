@@ -9,6 +9,10 @@
 import UIKit
 
 class OverviewViewController: UIViewController {
+    
+    @IBOutlet weak var tableView: UITableView!
+    var schedules = [Schedule]()
+    let scheduleSegueID = "showScheduleSegue"
 
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -23,11 +27,18 @@ class OverviewViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white, NSFontAttributeName: UIFont.systemFont(ofSize: 18, weight: UIFontWeightBold)]
         navigationController?.navigationBar.topItem?.title = "Overview"
         navigationController?.navigationBar.barStyle = .black
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
     }
 
-    // MARK: - Actions
-    @IBAction func addSchedulePressed(_ sender: Any) {
-        
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let scheduleVC = segue.destination as? ScheduleViewController, segue.identifier == scheduleSegueID {
+            scheduleVC.scheduleCallback = { schedule in
+                self.schedules.append(schedule)
+                print(schedule)
+            }
+        }
     }
 }
 

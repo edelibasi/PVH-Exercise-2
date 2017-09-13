@@ -13,6 +13,9 @@ class ScheduleViewController: UIViewController {
     let datePicker = UIDatePicker()
     let startDateView = ScheduleDetailView(leftText: "Begin:")
     let endDateView = ScheduleDetailView(leftText: "End Date:")
+
+    var schedule = Schedule()
+    var scheduleCallback: ((Schedule) -> Void)?
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -23,6 +26,14 @@ class ScheduleViewController: UIViewController {
         configureDetailViews()
         configureNavigationBar()
         setupConstraints()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if self.isMovingFromParentViewController {
+            self.scheduleCallback?(schedule)
+        }
     }
     
     // MARK: - Setup & Configuration
@@ -88,6 +99,9 @@ class ScheduleViewController: UIViewController {
     func datePickerValueChanged(datePicker: UIDatePicker) {
         let startDateString = datePicker.date.stringValue
         let endDateString = datePicker.date.addingDays(7).stringValue
+        
+        schedule.startDate = datePicker.date
+        schedule.endDate = datePicker.date.addingDays(7)
         
         startDateView.valueLabel.text = startDateString
         endDateView.valueLabel.text = endDateString
