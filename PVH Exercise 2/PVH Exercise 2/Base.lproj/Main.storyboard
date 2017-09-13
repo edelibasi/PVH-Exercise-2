@@ -12,7 +12,7 @@
         <!--Overview-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Overview" id="BYZ-38-t0r" customClass="OverviewViewController" customModule="PVH_Exercise_2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Overview" automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="OverviewViewController" customModule="PVH_Exercise_2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -39,7 +39,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Onx-1W-wWn">
                             <color key="tintColor" red="0.97647058819999999" green="0.97254901959999995" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="5ba-FO-ifu" kind="show" identifier="showScheduleSegue" id="m5O-EJ-oOw"/>
+                                <segue destination="5ba-FO-ifu" kind="show" identifier="addScheduleSegue" id="m5O-EJ-oOw"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -47,6 +47,7 @@
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="tableView" destination="lmy-8N-B5t" id="w5t-1I-Xi2"/>
+                        <segue destination="5ba-FO-ifu" kind="show" identifier="showScheduleSegue" id="U1A-Ef-mYE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -93,4 +94,7 @@
             <point key="canvasLocation" x="136.80000000000001" y="-543.77811094452773"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="U1A-Ef-mYE"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -42,15 +42,16 @@ class ScheduleViewController: UIViewController {
         datePicker.datePickerMode = .date
         datePicker.minimumDate = Date()
         datePicker.addTarget(self, action: #selector(datePickerValueChanged(datePicker:)), for: .valueChanged)
+        datePicker.setDate(schedule.startDate, animated: true)
     }
     
     func configureDetailViews() {
         startDateView.translatesAutoresizingMaskIntoConstraints = false
-        startDateView.setNewDefaultValue(Date().stringValue)
+        startDateView.setNewDefaultValue(schedule.startDate.stringValue)
         startDateView.valueLabel.text = startDateView.defaultValue
         
         endDateView.translatesAutoresizingMaskIntoConstraints = false
-        endDateView.setNewDefaultValue(Date().addingDays(7).stringValue)
+        endDateView.setNewDefaultValue(schedule.endDate.stringValue)
         endDateView.valueLabel.text = endDateView.defaultValue
     }
     
