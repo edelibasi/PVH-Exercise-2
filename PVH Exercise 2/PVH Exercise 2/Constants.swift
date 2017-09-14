@@ -14,3 +14,11 @@ public struct LayoutConstants {
     static let datePickerHeight: CGFloat = 220
     static let tableViewRowHeight: CGFloat = 90
 }
+
+public struct StringConstants {
+    static let addScheduleSegueID = "addScheduleSegue"
+    static let showScheduleSegueID = "showScheduleSegue"
+    static let scheduleCellReuseID = "ScheduleCell"
+    static let scheduleCellNIB = "ScheduleCell"
+    static let title = "Overview"
+}

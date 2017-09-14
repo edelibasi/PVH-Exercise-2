@@ -12,9 +12,6 @@ class OverviewViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     var schedules = [Schedule]()
-    let addScheduleSegueID = "addScheduleSegue"
-    let showScheduleSegueID = "showScheduleSegue"
-    let scheduleCellReuseID = "ScheduleCell"
 
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -28,7 +25,7 @@ class OverviewViewController: UIViewController {
     func configureNavigationBar() {
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white, NSFontAttributeName: UIFont.systemFont(ofSize: 18, weight: UIFontWeightBold)]
-        navigationController?.navigationBar.topItem?.title = "Overview"
+        navigationController?.navigationBar.topItem?.title = StringConstants.title
         navigationController?.navigationBar.barStyle = .black
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
@@ -38,8 +35,8 @@ class OverviewViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = 70
-        tableView.register(ScheduleCell.self, forCellReuseIdentifier: scheduleCellReuseID)
-        tableView.register(UINib(nibName: "ScheduleCell", bundle: nil), forCellReuseIdentifier: scheduleCellReuseID)
+        tableView.register(ScheduleCell.self, forCellReuseIdentifier: StringConstants.scheduleCellReuseID)
+        tableView.register(UINib(nibName: StringConstants.scheduleCellNIB, bundle: nil), forCellReuseIdentifier: StringConstants.scheduleCellReuseID)
         tableView.tableFooterView = UIView()
     }
 
@@ -48,12 +45,12 @@ class OverviewViewController: UIViewController {
         if let scheduleVC = segue.destination as? ScheduleViewController, let identifier = segue.identifier {
             
             switch(identifier) {
-            case addScheduleSegueID:
+            case StringConstants.addScheduleSegueID:
                 scheduleVC.scheduleCallback = { schedule in
                     self.schedules.append(schedule)
                     self.synchronizeTableView()
                 }
-            case showScheduleSegueID:
+            case StringConstants.showScheduleSegueID:
                 if let indexPath = sender as? IndexPath {
                     scheduleVC.schedule = schedules[indexPath.row]
                     scheduleVC.scheduleCallback = { schedule in
@@ -77,7 +74,7 @@ extension OverviewViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        self.performSegue(withIdentifier: showScheduleSegueID, sender: indexPath)
+        self.performSegue(withIdentifier: StringConstants.showScheduleSegueID, sender: indexPath)
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -95,7 +92,7 @@ extension OverviewViewController: UITableViewDelegate {
 extension OverviewViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: scheduleCellReuseID, for: indexPath) as? ScheduleCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: StringConstants.scheduleCellReuseID, for: indexPath) as? ScheduleCell else {
             return UITableViewCell()
         }
         
