@@ -51,19 +51,25 @@ class OverviewViewController: UIViewController {
             case addScheduleSegueID:
                 scheduleVC.scheduleCallback = { schedule in
                     self.schedules.append(schedule)
-                    self.tableView.reloadData()
+                    self.synchronizeTableView()
                 }
             case showScheduleSegueID:
                 if let indexPath = sender as? IndexPath {
                     scheduleVC.schedule = schedules[indexPath.row]
                     scheduleVC.scheduleCallback = { schedule in
                         self.schedules[indexPath.row] = schedule
-                        self.tableView.reloadData()
+                        self.synchronizeTableView()
                     }
                 }
             default: break
             }
         }
+    }
+    
+    // MARK: - Helpers
+    func synchronizeTableView() {
+        schedules = schedules.sorted(by: { $0.startDate < $1.startDate })
+        self.tableView.reloadData()
     }
 }
 
@@ -72,6 +78,17 @@ extension OverviewViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         self.performSegue(withIdentifier: showScheduleSegueID, sender: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            schedules.remove(at: indexPath.row)
+            synchronizeTableView()
+        }
     }
 }
 
