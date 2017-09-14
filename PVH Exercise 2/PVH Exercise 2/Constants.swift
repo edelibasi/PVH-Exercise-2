@@ -15,10 +15,16 @@ public struct LayoutConstants {
     static let tableViewRowHeight: CGFloat = 90
 }
 
-public struct StringConstants {
+public struct OverviewVCStrings {
     static let addScheduleSegueID = "addScheduleSegue"
     static let showScheduleSegueID = "showScheduleSegue"
     static let scheduleCellReuseID = "ScheduleCell"
     static let scheduleCellNIB = "ScheduleCell"
     static let title = "Overview"
 }
+
+public struct ScheduleVCStrings {
+    static let title = "Schedule"
+    static let clear = "Clear"
+}
+

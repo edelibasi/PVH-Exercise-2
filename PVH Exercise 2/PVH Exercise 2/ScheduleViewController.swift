@@ -58,10 +58,10 @@ class ScheduleViewController: UIViewController {
     func configureNavigationBar() {
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white, NSFontAttributeName: UIFont.systemFont(ofSize: 18, weight: UIFontWeightBold)]
-        navigationController?.navigationBar.topItem?.title = "Schedule"
+        navigationController?.navigationBar.topItem?.title = ScheduleVCStrings.title
         navigationController?.navigationBar.barStyle = .black
         
-        let clearButton = UIBarButtonItem(title: "Clear", style: .plain, target: self, action: #selector(clearPressed))
+        let clearButton = UIBarButtonItem(title: ScheduleVCStrings.clear, style: .plain, target: self, action: #selector(clearPressed))
         navigationItem.rightBarButtonItem = clearButton
     }
     
@@ -90,7 +90,7 @@ class ScheduleViewController: UIViewController {
         self.view.addConstraints([startDateLeadingConstraint, startDateTrailingConstraint, startDateTopConstraint, startDateHeightConstraint, datePickerLeadingConstraint, datePickerTrailingConstraint, datePickerTopConstraint, datePickerHeightConstraint, endDateLeadingConstraint, endDateTrailingConstraint, endDateTopConstraint, endDateHeightConstraint])
     }
     
-    // MARK: - Actions
+    // MARK: - Actions & Helper Methods
     func clearPressed() {
         datePicker.setDate(Date(), animated: true)
         startDateView.valueLabel.text = startDateView.defaultValue
