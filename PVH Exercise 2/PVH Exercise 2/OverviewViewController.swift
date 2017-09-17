@@ -35,8 +35,8 @@ class OverviewViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = 70
-        tableView.register(ScheduleCell.self, forCellReuseIdentifier: OverviewVCStrings.scheduleCellReuseID)
-        tableView.register(UINib(nibName: OverviewVCStrings.scheduleCellNIB, bundle: nil), forCellReuseIdentifier: OverviewVCStrings.scheduleCellReuseID)
+        tableView.register(ScheduleCell.self, forCellReuseIdentifier: ScheduleCell.reuseID)
+        tableView.register(UINib(nibName: ScheduleCell.nibName, bundle: nil), forCellReuseIdentifier: ScheduleCell.reuseID)
         tableView.tableFooterView = UIView()
     }
 
@@ -65,7 +65,7 @@ class OverviewViewController: UIViewController {
     
     // MARK: - Helpers
     func synchronizeTableView() {
-        schedules = schedules.sorted(by: { $0.startDate < $1.startDate })
+        schedules = schedules.sorted(by: { $0.beginDate < $1.beginDate })
         self.tableView.reloadData()
     }
 }
@@ -92,11 +92,11 @@ extension OverviewViewController: UITableViewDelegate {
 extension OverviewViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: OverviewVCStrings.scheduleCellReuseID, for: indexPath) as? ScheduleCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ScheduleCell.reuseID, for: indexPath) as? ScheduleCell else {
             return UITableViewCell()
         }
         
-        cell.setStartDate(schedules[indexPath.row].startDate)
+        cell.setStartDate(schedules[indexPath.row].beginDate)
         cell.setEndDate(schedules[indexPath.row].endDate)
         
         return cell

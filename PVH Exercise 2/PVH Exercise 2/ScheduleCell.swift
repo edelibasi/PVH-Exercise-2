@@ -11,6 +11,9 @@ import UIKit
 class ScheduleCell: UITableViewCell {
     @IBOutlet weak var startDateLabel: UILabel!
     @IBOutlet weak var endDateLabel: UILabel!
+    
+    static let reuseID = "ScheduleCell"
+    static let nibName = "ScheduleCell"
 
     override func awakeFromNib() {
         super.awakeFromNib()

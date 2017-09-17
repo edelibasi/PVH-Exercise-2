@@ -18,8 +18,6 @@ public struct LayoutConstants {
 public struct OverviewVCStrings {
     static let addScheduleSegueID = "addScheduleSegue"
     static let showScheduleSegueID = "showScheduleSegue"
-    static let scheduleCellReuseID = "ScheduleCell"
-    static let scheduleCellNIB = "ScheduleCell"
     static let title = "Overview"
 }
 
